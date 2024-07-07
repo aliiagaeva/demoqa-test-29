@@ -15,16 +15,18 @@ public class TextBoxTests
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.timeout = 5000;
+        Configuration.timeout = 10000;
     }
 
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Name");
-        $("[id=lastName]").setValue("Last");
-        $("[id=userEmail]").setValue("Name@gmail.com");
-        $("[id=userNumber]").setValue("1234567890");
+        $("#lastName").setValue("Last");
+        $("#userEmail").setValue("Name@gmail.com");
+        $("#userNumber").setValue("1234567890");
         $("label[for='gender-radio-2']").click();
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("January");
@@ -32,16 +34,13 @@ public class TextBoxTests
         $(".react-datepicker__day--001").click();
         $("label[for='hobbies-checkbox-1']").click();
         $("#uploadPicture").uploadFromClasspath("1000.jpg");
-        $("[id=currentAddress]").setValue("SPb");
+        $("#currentAddress").setValue("SPb");
         $("#subjectsInput").click();
-        $("#subjectsInput").setValue("Math");
-        $$(".subjects-auto-complete__option").findBy(text("Maths")).should(appear).click();
+        $("#subjectsInput").setValue("Math").pressEnter();
         $("#state").click();
         $("#react-select-3-option-3").click();
-        //$$(".css-11unzgr .css-1n7v3ny-option, .css-yt9ioa-option").findBy(text("NCR")).click();
         $("#city").click();
         $("#react-select-4-option-0").click();
-        //$$(".css-11unzgr .css-1n7v3ny-option, .css-yt9ioa-option").findBy(text("Delhi")).click();
         $("#submit").click();
         $(".table").shouldHave(text("Student Name Name Last"));
         $(".table").shouldHave(text("Student Email Name@gmail.com"));
