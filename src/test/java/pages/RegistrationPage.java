@@ -4,6 +4,9 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponents;
 import pages.components.ResultTableComponents;
+
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
@@ -12,7 +15,7 @@ public class RegistrationPage {
     public final SelenideElement lastNameInput = $("#lastName");
     private final SelenideElement userEmailInput = $("#userEmail");
     public final SelenideElement userNumberInput = $("#userNumber");
-    private  SelenideElement genderRadio(String gender) { return $("label[for='gender-radio-" + gender + "']"); }
+    private final SelenideElement genderWrapper = $("#genterWrapper");
     private final SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
     private SelenideElement hobbyCheckbox(String hobby) { return $("label[for='hobbies-checkbox-" + hobby + "']"); }
     private final SelenideElement uploadPictureInput = $("#uploadPicture");
@@ -23,12 +26,15 @@ public class RegistrationPage {
     private final SelenideElement cityDropdown = $("#city");
     private SelenideElement cityOption(String city) { return $("#react-select-4-option-" + city); }
     private final SelenideElement submitButton = $("#submit");
-    private final ResultTableComponents resultsTable = new ResultTableComponents();
 
     CalendarComponents calendarComponents = new CalendarComponents();
+    ResultTableComponents resultTableComponents = new ResultTableComponents();
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
+        return this;
+    }
+    public RegistrationPage removeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
@@ -51,7 +57,7 @@ public class RegistrationPage {
         return this;
     }
     public RegistrationPage selectGender(String gender) {
-        genderRadio(gender).click();
+        genderWrapper.$(byText(gender)).click();
         return this;
     }
     public RegistrationPage setDateOfBirth(String day, String month, String year) {
@@ -89,15 +95,12 @@ public class RegistrationPage {
         submitButton.click();
         return this;
     }
-    public ResultTableComponents getResultTable(){
-        return resultsTable;
-    }
     public RegistrationPage checkFieldBorderColor(SelenideElement locatorId, String color) {
         locatorId.shouldHave(Condition.cssValue("border-color", color));
         return this;
     }
-    public RegistrationPage resultTableNotVisible() {
-        resultsTable.shouldNotBe(Condition.visible);
+    public RegistrationPage checkResult(String key, String value) {
+        resultTableComponents.checkResult(key, value);
         return this;
     }
 }
