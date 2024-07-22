@@ -13,6 +13,7 @@ public class ResultTableComponents {
         resultsTable.shouldHave(text(key + " " + value));
         return this;
     }
+
     public void checkResultsTableNotVisible() {
         resultsTable.shouldNotBe(visible);
     }

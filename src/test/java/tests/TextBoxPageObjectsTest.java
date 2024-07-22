@@ -16,13 +16,13 @@ public class TextBoxPageObjectsTest extends TestBase {
                 .setLastName("Last")
                 .setUserNumber("1234567890")
                 .selectGender("Female")
-                .setDateOfBirth("1", "January", "1970")
+                .setDateOfBirth("30", "January", "1991")
                 .submitForm()
                 .checkResult("Student Name", "Name Last")
                 .checkResult("Gender", "Female")
                 .checkResult("Mobile", "1234567890")
-                .checkResult("Date of Birth", "01 January,1970");
-              }
+                .checkResult("Date of Birth", "30 January,1991");
+    }
 
     @Test
     void negativeRegistrationTest() {
@@ -34,8 +34,8 @@ public class TextBoxPageObjectsTest extends TestBase {
                 .checkFieldBorderColor(registrationPage.firstNameInput, redColor)
                 .checkFieldBorderColor(registrationPage.lastNameInput, redColor)
                 .checkFieldBorderColor(registrationPage.userNumberInput, redColor);
-            new ResultTableComponents().checkResultsTableNotVisible();// добавила проверку что не открывается попап с результатами
-         }
+        new ResultTableComponents().checkResultsTableNotVisible();// добавила проверку что не открывается попап с результатами
+    }
 
     @Test
     void successfulFullRegistrationTest() {
@@ -45,19 +45,19 @@ public class TextBoxPageObjectsTest extends TestBase {
                 .setUserEmail("Name@gmail.com")
                 .setUserNumber("1234567890")
                 .selectGender("Female")
-                .setDateOfBirth("1", "January", "1970")
-                .selectHobbies("1")
-                .uploadPicture("1000.png")
+                .setDateOfBirth("30", "January", "1991")
+                .setHobbies("Sports")
+                .uploadPicture("1000.jpg")
                 .setAddress("SPb")
                 .setSubject("Math")
-                .setState("3")
-                .setCity("0")
+                .setState("Rajasthan")
+                .setCity("Jaipur")
                 .submitForm()
                 .checkResult("Student Name", "Name Last")
                 .checkResult("Student Email", "Name@gmail.com")
                 .checkResult("Gender", "Female")
                 .checkResult("Mobile", "1234567890")
-                .checkResult("Date of Birth", "01 January,1970")
+                .checkResult("Date of Birth", "30 January,1991")
                 .checkResult("Subjects", "Maths")
                 .checkResult("Hobbies", "Sports")
                 .checkResult("Picture", "1000.jpg")
