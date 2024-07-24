@@ -34,7 +34,9 @@ public class TestData {
             return faker.options().option("Jaipur", "Jaiselmer");
         }
         return state;
-    };
+    }
+
+    ;
 
     public String getDay() {
         SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
