@@ -19,10 +19,8 @@ public class RegistrationPage {
     private final SelenideElement uploadPictureInput = $("#uploadPicture");
     private final SelenideElement addressInput = $("#currentAddress");
     private final SelenideElement subjectsInput = $("#subjectsInput");
-    private final SelenideElement stateCityWrapper = $("#stateCity-wrapper");
     public static SelenideElement stateInput = $("#state");
     public static SelenideElement cityInput = $("#city");
-
     private final SelenideElement submitButton = $("#submit");
 
     CalendarComponents calendarComponents = new CalendarComponents();
