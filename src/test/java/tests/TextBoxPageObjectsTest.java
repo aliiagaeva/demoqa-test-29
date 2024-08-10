@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import pages.components.ResultTableComponents;
 
+
 public class TextBoxPageObjectsTest extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
