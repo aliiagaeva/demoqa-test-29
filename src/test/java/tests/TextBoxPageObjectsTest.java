@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import pages.components.ResultTableComponents;
@@ -10,6 +11,7 @@ public class TextBoxPageObjectsTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
+    @Tag("smoke")
     void successfulRegistrationTest() {
         registrationPage.openPage()
                 .removeBanner()
@@ -26,6 +28,7 @@ public class TextBoxPageObjectsTest extends TestBase {
     }
 
     @Test
+    @Tag("smoke")
     void negativeRegistrationTest() {
         String redColor = "rgb(220, 53, 69)";
         registrationPage.openPage()
@@ -39,6 +42,7 @@ public class TextBoxPageObjectsTest extends TestBase {
     }
 
     @Test
+    @Tag("regression")
     void successfulFullRegistrationTest() {
         registrationPage.openPage()
                 .setFirstName("Name")
