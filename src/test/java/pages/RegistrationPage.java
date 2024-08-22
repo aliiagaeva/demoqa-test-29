@@ -103,15 +103,15 @@ public class RegistrationPage {
 
     @Step("Ввод штата")
     public RegistrationPage setState(String state) {
-        stateInput.click();
-        stateInput.$(byText(state)).scrollIntoView(true).click();
+        stateInput.scrollIntoView(true).click();
+        stateInput.$(byText(state)).click();
         return this;
     }
 
     @Step("Ввод города")
     public RegistrationPage setCity(String city) {
-        cityInput.click();
-        cityInput.$(byText(city)).scrollIntoView(true).click();
+        cityInput.scrollIntoView(true).click();
+        cityInput.$(byText(city)).click();
         return this;
     }
 
