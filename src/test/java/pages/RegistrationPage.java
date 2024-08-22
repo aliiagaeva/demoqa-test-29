@@ -42,44 +42,44 @@ public class RegistrationPage {
 
     @Step("Ввод имени")
     public RegistrationPage setFirstName(String firstName) {
-        firstNameInput.setValue(firstName);
+        firstNameInput.scrollIntoView(true).setValue(firstName);
         return this;
     }
 
     @Step("Ввод фамилии")
     public RegistrationPage setLastName(String lastName) {
-        lastNameInput.setValue(lastName);
+        lastNameInput.scrollIntoView(true).setValue(lastName);
         return this;
     }
 
     @Step("Ввод почты")
     public RegistrationPage setUserEmail(String email) {
-        userEmailInput.setValue(email);
+        userEmailInput.scrollIntoView(true).setValue(email);
         return this;
     }
 
     @Step("Ввод номера телефона")
     public RegistrationPage setUserNumber(String phoneNumber) {
-        userNumberInput.setValue(phoneNumber);
+        userNumberInput.scrollIntoView(true).setValue(phoneNumber);
         return this;
     }
 
     @Step("Выбор гендера")
     public RegistrationPage selectGender(String gender) {
-        genderWrapper.$(byText(gender)).click();
+        genderWrapper.$(byText(gender)).scrollIntoView(true).click();
         return this;
     }
 
     @Step("Ввод даты рождения")
     public RegistrationPage setDateOfBirth(String day, String month, String year) {
-        dateOfBirthInput.click();
+        dateOfBirthInput.scrollIntoView(true).click();
         calendarComponents.setDate(day, month, year);
         return this;
     }
 
     @Step("Выбор хобби")
     public RegistrationPage setHobbies(String hobby) {
-        hobbiesWrapper.$(byText(hobby)).click();
+        hobbiesWrapper.$(byText(hobby)).scrollIntoView(true).click();
         return this;
     }
 
