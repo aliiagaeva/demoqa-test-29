@@ -16,10 +16,10 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class TestBase {
     @BeforeAll
     static void beforeAll() {
-        Configuration.browserSize = System.getProperty("browser_size","1920x1080" );
-        Configuration.baseUrl = System.getProperty("base_url", "https://demoqa.com");
+        Configuration.browserSize = System.getProperty("browserSize","1920x1080" );
+        Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
         Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("version", "100.0");
+        Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 30000;
         Configuration.remote = System.getProperty("remote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
