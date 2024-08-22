@@ -91,33 +91,33 @@ public class RegistrationPage {
 
     @Step("Ввод адреса")
     public RegistrationPage setAddress(String address) {
-        addressInput.setValue(address);
+        addressInput.scrollIntoView(true).setValue(address);
         return this;
     }
 
     @Step("Ввод {subject}")
     public RegistrationPage setSubject(String subject) {
-        subjectsInput.setValue(subject).pressEnter();
+        subjectsInput.scrollIntoView(true).setValue(subject).pressEnter();
         return this;
     }
 
     @Step("Ввод штата")
     public RegistrationPage setState(String state) {
         stateInput.click();
-        stateInput.$(byText(state)).scrollTo().click();
+        stateInput.$(byText(state)).scrollIntoView(true).click();
         return this;
     }
 
     @Step("Ввод города")
     public RegistrationPage setCity(String city) {
         cityInput.click();
-        cityInput.$(byText(city)).scrollTo().click();
+        cityInput.$(byText(city)).scrollIntoView(true).click();
         return this;
     }
 
     @Step("Клик на кнопку Отправить")
     public RegistrationPage submitForm() {
-        submitButton.scrollTo().click();
+        submitButton.scrollIntoView(true).click();
         return this;
     }
 
