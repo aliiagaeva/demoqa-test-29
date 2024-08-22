@@ -27,7 +27,7 @@ public class TestData {
         if ("NCR".equals(state)) {
             return faker.options().option("Delhi", "Gurgaon", "Noida");
         } else if ("Uttar Pradesh".equals(state)) {
-            return faker.options().option("Agra", "Lucknow", "Merrit");
+            return faker.options().option("Agra", "Lucknow", "Merrut");
         } else if ("Haryana".equals(state)) {
             return faker.options().option("Karnal", "Panipat");
         } else if ("Rajasthan".equals(state)) {
